@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz EAP 2025 - 3º Sargento BM Combatente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f94144;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #343a40;
+            --gray: #6c757d;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 15px 50px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTAINER PRINCIPAL ===== */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        /* ===== HEADER MODERNO ===== */
+        .modern-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZD0iTTIxLDMwIEMyMSwzMCA0MCwzMCA1MCw0MCBDNjAsMzAgNzksMzAgNzksMzAgQzc5LDMwIDg1LDM1IDg1LDQwIEM4NSw0NSA3OSw1MCA3OSw1MCBDNzksNTAgNjAsNTAgNTAsNjAgQzQwLDUwIDIxLDUwIDIxLDUwIEMyMSw1MCAxNSw0NSAxNSw0MCBDMTUsMzUgMjEsMzAgMjEsMzAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=');
+            background-size: 150px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            text-align: center;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        .welcome-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: left;
+        }
+
+        .welcome-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .welcome-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .start-btn {
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(248, 37, 133, 0.4);
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(248, 37, 133, 0.5);
+            background: #ff2d95;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            justify-content: center;
+        }
+
+        /* ===== SEÇÃO DE CONTEÚDO ===== */
+        .content-section {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .about-card, .details-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .card-content ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .card-content li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .card-content li i {
+            color: var(--primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .highlight {
+            background: var(--gradient-light);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        /* ===== SEÇÃO DO QUIZ ===== */
+        .quiz-section {
+            display: none;
+            padding: 20px 15px;
+        }
+
+        .progress-container {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .question-header {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-difficulty {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .difficulty-easy { background: var(--success); }
+        .difficulty-medium { background: var(--warning); }
+        .difficulty-hard { background: var(--danger); }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 16px 15px;
+            background: var(--light);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .option.selected.correct {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            transform: translateY(-2px);
+        }
+
+        .option.selected.incorrect {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+            transform: translateY(-2px);
+        }
+
+        .option.correct-answer {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            animation: pulse 0.6s ease;
+        }
+
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-letter,
+        .option.correct-answer .option-letter {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .feedback-icon {
+            margin-left: auto;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .option.selected.correct .feedback-icon,
+        .option.correct-answer .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.selected.incorrect .feedback-icon {
+            opacity: 1;
+        }
+
+        .option.locked {
+            cursor: not-allowed;
+        }
+
+        .option.locked:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 10px;
+        }
+
+        button {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-next {
+            background: var(--secondary);
+        }
+
+        /* ===== RESULTADOS ===== */
+        .results {
+            text-align: center;
+            padding: 30px 20px;
+            display: none;
+        }
+
+        .results-header {
+            margin-bottom: 25px;
+        }
+
+        .score {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 15px 0;
+        }
+
+        .performance {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .performance-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+        }
+
+        .performance-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .performance-easy { color: var(--success); }
+        .performance-medium { color: var(--warning); }
+        .performance-hard { color: var(--danger); }
+
+        .message {
+            font-size: 1.1rem;
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: var(--shadow);
+            line-height: 1.5;
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .bounce {
+            animation: bounce 0.6s;
+        }
+
+        /* ===== MELHORIAS PARA SMARTPHONE ===== */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 16px;
+            }
+            
+            .modern-header {
+                padding: 20px 15px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .welcome-card {
+                padding: 15px;
+            }
+            
+            .content-section {
+                padding: 25px 15px;
+            }
+            
+            .about-card, .details-card {
+                padding: 20px 15px;
+            }
+            
+            .quiz-section {
+                padding: 15px 10px;
+            }
+            
+            .question {
+                padding: 15px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                padding: 14px 12px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .results {
+                padding: 25px 15px;
+            }
+            
+            .score {
+                font-size: 3rem;
+            }
+        }
+
+        /* ===== MELHORIAS PARA TABLETS ===== */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .logo-text {
+                text-align: left;
+            }
+            
+            .features {
+                flex-direction: row;
+                max-width: 100%;
+            }
+            
+            .performance {
+                flex-direction: row;
+            }
+            
+            .navigation {
+                flex-direction: row;
+            }
+        }
+
+        /* ===== MELHORIAS PARA DESKTOP ===== */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 900px;
+            }
+            
+            .content-section {
+                grid-template-columns: 1fr 1fr;
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <!-- HEADER MODERNO -->
+        <header class="modern-header">
+            <div class="header-bg"></div>
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <div class="logo-fallback" id="logo-fallback">
+                            <i class="fas fa-fire-extinguisher" style="font-size: 3rem; color: #4361ee;"></i>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Quiz EAP 2025</h1>
+                        <div class="subtitle">3º Sargento BM Combatente</div>
+                    </div>
+                </div>
+
+                <div class="welcome-card">
+                    <h2><i class="fas fa-fire"></i> Bem-vindo ao Quiz EAP 2025!</h2>
+                    <p>Teste seus conhecimentos para o Exame de Aptidão Profissional do Corpo de Bombeiros Militar de Minas Gerais com 40 questões baseadas no conteúdo oficial.</p>
+                </div>
+
+                <div class="cta-section">
+                    <button class="start-btn" id="start-btn">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </button>
+
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-star" style="color: #4cc9f0;"></i>
+                            <span>40 Perguntas</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle" style="color: #f8961e;"></i>
+                            <span>Feedback Imediato</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap" style="color: #f94144;"></i>
+                            <span>Prepare-se para o EAP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SEÇÃO DE CONTEÚDO -->
+        <section class="content-section">
+            <div class="about-card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Sobre o EAP 2025</h2>
+                <div class="card-content">
+                    <p>O Exame de Aptidão Profissional (EAP) 2025 é destinado aos militares do Corpo de Bombeiros Militar de Minas Gerais (CBMMG) que buscam progressão para a graduação de 3º Sargento BM Combatente.</p>
+                    <p>A prova contém 40 questões objetivas distribuídas em três áreas de conhecimento: Legislação Institucional, Conhecimentos Jurídicos e Conhecimentos Profissionais.</p>
+                    <p><span class="highlight">Duração: 4 horas</span> - Prova com consulta ao material individual do candidato.</p>
+                </div>
+            </div>
+
+            <div class="details-card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> Estrutura da Prova</h2>
+                <div class="card-content">
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Legislação Institucional:</strong> Questões 1 a 12</li>
+                        <li><i class="fas fa-check"></i> <strong>Conhecimentos Jurídicos:</strong> Questões 13 a 24</li>
+                        <li><i class="fas fa-check"></i> <strong>Conhecimentos Profissionais:</strong> Questões 25 a 40</li>
+                        <li><i class="fas fa-check"></i> <strong>Total:</strong> 40 questões objetivas</li>
+                        <li><i class="fas fa-check"></i> <strong>Material:</strong> Prova com consulta permitida</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DO QUIZ -->
+        <div class="quiz-section" id="quiz-section">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <div class="progress-text" id="progress-text">Pergunta 1 de 40</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="quiz-progress"></div>
+                </div>
+            </div>
+
+            <div class="quiz-container" id="quiz-container">
+                <!-- Perguntas serão inseridas aqui pelo JavaScript -->
+            </div>
+
+            <div class="navigation">
+                <button id="prev-btn" disabled>
+                    <i class="fas fa-arrow-left"></i> Anterior
+                </button>
+                <button id="next-btn" class="btn-next">
+                    Próxima <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SEÇÃO DE RESULTADOS -->
+        <div class="results" id="results">
+            <div class="results-header">
+                <h2><i class="fas fa-trophy"></i> Resultado Final</h2>
+            </div>
+            <div class="score" id="score">0/0</div>
+
+            <div class="performance" id="performance">
+                <div class="performance-item">
+                    <div class="performance-value performance-easy" id="correct-legislacao">0</div>
+                    <div>Legislação</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-medium" id="correct-juridico">0</div>
+                    <div>Jurídico</div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-value performance-hard" id="correct-profissional">0</div>
+                    <div>Profissional</div>
+                </div>
+            </div>
+
+            <div class="message" id="message"></div>
+
+            <button id="restart-btn" style="background: var(--success);">
+                <i class="fas fa-redo"></i> Fazer Quiz Novamente
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // BANCO DE PERGUNTAS - EAP 2025 (40 QUESTÕES)
+        // =============================================
+
+        const allQuestions = [
+            // LEGISLAÇÃO INSTITUCIONAL (Questões 1-12)
+            {
+                id: 1,
+                question: "De acordo com a Instrução Técnica de Corregedoria (ITC) nº 15, analise as afirmativas a seguir e marque a alternativa CORRETA: I - O Bombeiro Militar mesmo fora do exercício da função pública, ao se utilizar das mídias e redes sociais deve sempre buscar a preservação da imagem institucional de modo a não permitir que a expressão de suas convicções pessoais reflita negativamente na imagem do CBMMG. II - Nas ocorrências em que haja a atuação do CBMMG, o Bombeiro Militar, pode auxiliar a terceiros, a fazerem imagens ou vídeos de pessoas atendidas, de forma que seja utilizado aparelhos eletrônicos particulares para tal ação. III - Ao fazer uso das mídias e redes sociais, é vedado ao militar publicar sem autorização assuntos internos ou de natureza estratégica que tenha conhecimento em razão do exercício de sua função pública. IV - O empenho de viaturas e materiais do CBMMG para agraciamentos, comemorações, homenagens, cerimônias de casamentos ou eventos afins, bem como o emprego exclusivo de militares nas denominadas 'cúpula de aço', devem seguir normatização específica, sendo precedido de avaliação quanto ao recolhimento de Taxa de Segurança Pública.",
+                options: [
+                    "V, F, V, V",
+                    "F, V, F, V",
+                    "V, F, F, F",
+                    "F, V, F, F"
+                ],
+                correct: 0,
+                explanation: "A alternativa correta é 'V, F, V, V'. As afirmativas I, III e IV estão corretas de acordo com a ITC nº 15, enquanto a II está incorreta pois é vedado ao militar auxiliar terceiros a fazerem imagens ou vídeos de pessoas atendidas.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 2,
+                question: "Sobre a resolução nº 971/2021, que dispõe sobre Substituição Temporária no Corpo de Bombeiros Militar de Minas Gerais e dá outras providências, todas as afirmações abaixo estão corretas, EXCETO:",
+                options: [
+                    "A substituição temporária só ocorrerá quando existir claro na previsão de efetivo geral da Unidade, bem como no local de exercício, ou devido à indisponibilidade do titular do cargo.",
+                    "Nos casos em que a substituição temporária ocorrer na linha direta de comando, será avaliado os militares que possuírem a qualificação exigida e que demonstrarem aptidão para o exercício do cargo, de forma que a precedência hierárquica não será avaliado para a decisão do comandante.",
+                    "A substituição temporária, no caso de indisponibilidade do titular, ocorrerá com a acumulação das funções do substituto e substituído. Na hipótese de incompatibilidade de cargas horárias entre as atribuições, não haverá acumulação de funções tendo em vista a natureza e jornada de trabalho das funções associadas.",
+                    "A diferença entre a remuneração do posto ou graduação superior, para fins de pagamento da gratificação por substituição temporária, é calculada considerando as condições pessoais de tempo de serviço do militar. Quando o cargo for atribuído a graduação de Subtenente/Sargento, o substituto receberá gratificação correspondente à de 3º Sargento."
+                ],
+                correct: 1,
+                explanation: "A afirmativa incorreta é a segunda, pois na substituição temporária na linha direta de comando, a precedência hierárquica deve ser considerada para a decisão do comandante.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 3,
+                question: "Em relação ao Decreto nº 46.298/2013 que regula as promoções de praças da Instituições Militares do Estado de Minas Gerais, todas as afirmações abaixo estão corretas, EXCETO:",
+                options: [
+                    "Interstício é o período mínimo, contado dia a dia, em que a praça deverá permanecer na graduação para que possa ser cogitada para a promoção pelos critérios de merecimento ou de antiguidade, assim compreendido, sendo cinco anos na graduação de 3º sargento, quatro anos na graduação de 2º sargento e três anos na graduação de 1º sargento.",
+                    "As promoções de praças obedecerão aos seguintes percentuais e critérios, satisfeitas as demais condições, sendo que a à graduação de Soldado de 1ª Classe, 100% (cem por cento) pelo critério exclusivo de necessidade do serviço, mediante aprovação no respectivo curso de formação.",
+                    "O militar pronto para o serviço é considerado possuidor de aptidão física para o exercício das funções inerentes à graduação que irá ocupar.",
+                    "O Quadro de Acesso é a relação de praças selecionadas pela Comissão Própria de Avaliação, que preencham as condições para promoção, separadas por graduação, nos respectivos quadros da carreira e turmas, organizada pelo critério de merecimento e antiguidade."
+                ],
+                correct: 3,
+                explanation: "A afirmativa incorreta é a quarta, pois o Quadro de Acesso não é organizado apenas pelo critério de merecimento e antiguidade, mas segue outros critérios estabelecidos no decreto.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 4,
+                question: "Sobre o Código de Ética e Disciplina dos Militares do Estado de Minas Gerais, marque a alternativa INCORRETA:",
+                options: [
+                    "A hierarquia e a disciplina constituem a base institucional das Instituições Militares Estaduais.",
+                    "Exercer coação ou assediar pessoas com as quais mantenha relações funcionais são transgressões de natureza média.",
+                    "Quando se tratar de falta ou abandono ao serviço ou expediente, o militar perderá os vencimentos correspondentes aos dias em que se verificar a transgressão, independentemente da sanção disciplinar.",
+                    "No que se refere a uma transgressão são circunstâncias agravantes está classificado no conceito 'C'."
+                ],
+                correct: 3,
+                explanation: "A alternativa incorreta é a quarta, pois as circunstâncias agravantes não estão classificadas no conceito 'C' no Código de Ética e Disciplina.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 5,
+                question: "Sobre a Instrução Técnica de Recursos Humanos nº 286/2022, que dispõe sobre contagem de tempo de serviço dos militares do Corpo de Bombeiros Militar de Minas Gerais, marque a alternativa CORRETA:",
+                options: [
+                    "O tempo precário é o tempo prestado por militar ao CBMMG com sua inclusão através de determinação judicial, sendo aplicado, e não necessita transitar em julgado para ser computado, de forma que a administração irá reaver o ato, caso uma nova decisão judicial seja desfavorável ao militar.",
+                    "Para o cálculo de quinquênio e de adicional trintenário, computa-se na apuração do tempo, a pedido do militar, os acréscimos relativos a: férias anuais não gozadas e que não puderam mais ser gozadas, não enquadrando as férias prêmio, que mesmo não gozadas, não entram para o cálculo.",
+                    "A transferência para a reserva não remunerada, se dará ao militar da ativa que aceitar cargo público permanente, estranho à sua carreira, somente nos casos com incompatibilidade de horários.",
+                    "Qualquer tempo de serviço a ser averbado no CBMMG, somente será comprovado por certidão original expedida pelo órgão competente, em via única, de acordo com norma específica de cada instituição, como por exemplo, o tempo de serviço público federal, estadual ou municipal."
+                ],
+                correct: 3,
+                explanation: "A alternativa correta é a quarta, pois de acordo com a ITRH nº 286/2022, qualquer tempo de serviço a ser averbado no CBMMG deve ser comprovado por certidão original expedida pelo órgão competente.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 6,
+                question: "Sobre a resolução nº 808/2018, que dispõe e define os procedimentos para a realização da Avaliação Anual de Desempenho e Produtividade (AADP) e dá outras providências, todas as afirmações abaixo estão corretas, EXCETO:",
+                options: [
+                    "Para militares com dispensa definitiva ou de dispensa temporária que perdure até 15 de novembro é obrigatória, para submissão ao EDP, a participação em todas as instruções da ATP, respeitadas as limitações de saúde do militar.",
+                    "Para os discentes do Curso de Formação de Soldados (CFSd), a nota obtida no curso corresponderá à AADP.",
+                    "Para a avaliação da disciplina será utilizado o conceito disciplinar do militar, conforme CEDM, sendo que o conceito disciplinar 'A', equivale a 10 pontos.",
+                    "Em caso de recurso quanto ao resultado da AADP, o mesmo será apreciado por uma comissão a ser designada para este fim, composta por três militares, superiores hierárquicos ou mais antigos que o recursante, designados por autoridade superior, da seguinte forma: Tenentes-Coronéis BM: por comissão presidida pelo Chefe do Estado-Maior ou Coronel BM designado, tendo como membros obrigatórios o Coronel BM Corregedor e o Coronel BM Comandante da Academia de Bombeiros Militar."
+                ],
+                correct: 3,
+                explanation: "A afirmativa incorreta é a quarta, pois a composição da comissão de recurso da AADP não inclui obrigatoriamente o Coronel BM Corregedor e o Coronel BM Comandante da Academia de Bombeiros Militar.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 7,
+                question: "O 3º Sgt Kolbe, incluído no CBMMG em 03/02/2014, foi promovido à graduação atual após a conclusão do CFS em 2019. O referido militar foi nomeado Secretário de Turismo e Lazer da cidade de Tiradentes, cargo que ocupou de março de 2021 a novembro de 2022. Levando em consideração que todas as medidas administrativas decorrentes foram tomadas, assinale a alternativa CORRETA em relação ao caso apresentado:",
+                options: [
+                    "Devido ao tempo ocupando cargo civil público, o militar teve seu ano-base recalculado para 2020.",
+                    "O tempo enquanto foi secretário não conta para promoção.",
+                    "As ADIs dos períodos avaliatórios de 04/02/2021 a 03/02/2022 e de 04/02/2022 a 03/02/2023 foram fixadas em 70 pontos.",
+                    "Caso o referido militar venha aceitar novamente cargo público civil temporário e ocupar esse cargo por 5 (cinco) meses, será transferido para a reserva ou reformado."
+                ],
+                correct: 2,
+                explanation: "A alternativa correta é a terceira, pois quando um militar assume cargo público civil, as ADIs dos períodos em que esteve afastado são fixadas em 70 pontos.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 8,
+                question: "O 2º Sgt Josemaria solicitou licença para tratar de pessoa da família para cuidar do pai enfermo. Em época anterior, quando um dos seus filhos esteve gravemente doente, chegou a gozar 30 dias da referida licença. Sobre o caso em questão, analise as afirmativas a seguir: I - O Diretor de Recursos Humanos poderá conceder até no máximo 60 dias de licença. II - O período no qual o militar estiver de licença não impactará no cômputo de tempo para fins de promoção. III - O militar só poderá iniciar o gozo da licença após a conclusão do processo administrativo. IV - O período no qual estiver de licença não será computado como tempo de serviço.",
+                options: [
+                    "V, V, F, V",
+                    "F, V, F, V",
+                    "F, F, F, V",
+                    "V, F, V, V"
+                ],
+                correct: 1,
+                explanation: "A sequência correta é F, V, F, V. A afirmativa I é falsa (o Diretor de RH pode conceder mais de 60 dias), a II é verdadeira, a III é falsa (o militar pode iniciar a licença antes da conclusão do processo em casos de urgência) e a IV é verdadeira.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 9,
+                question: "Segundo o Manual de Polícia Judiciária das IMEs, qual é a sequência deve ser respeitada nas oitivas durante a lavratura do Auto de Prisão em Flagrante (APF):",
+                options: [
+                    "Condutor, ofendido, testemunhas e conduzido",
+                    "Testemunha, condutor, conduzido e ofendido",
+                    "Conduzido, testemunha, condutor e ofendido",
+                    "Ofendido, condutor, conduzido e testemunhas"
+                ],
+                correct: 0,
+                explanation: "A sequência correta é: Condutor, ofendido, testemunhas e conduzido, de acordo com o Manual de Polícia Judiciária das IMEs.",
+                difficulty: "easy",
+                category: "Legislação"
+            },
+            {
+                id: 10,
+                question: "A preclusão, no contexto do processo disciplinar, significa:",
+                options: [
+                    "Perda de um direito em face do não exercício, no prazo legal, da ação que o assegurava.",
+                    "Extinção do processo por conveniência administrativa.",
+                    "Perda da faculdade de praticar algum ato processual.",
+                    "Cancelamento de sanção com efeito retroativo."
+                ],
+                correct: 2,
+                explanation: "Preclusão significa a perda da faculdade de praticar algum ato processual, geralmente por decurso de prazo ou por já ter sido praticado ato incompatível.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            {
+                id: 11,
+                question: "Sobre promoção por ato de bravura, é INCORRETO afirmar:",
+                options: [
+                    "O militar promovido por ato de bravura à graduação de 3º Sargento recebe nota 6 (seis) no fator formação acadêmica, equivalente ao CFS.",
+                    "Ações com risco à vida que beneficiem parentes até o 4º (quarto) grau não são consideradas para promoção por ato de bravura.",
+                    "As condições para estabelecimento do ato de bravura serão apuradas em relatório de investigação preliminar.",
+                    "Caso a CPP não considere o ato como de bravura, o processo será encaminhado à autoridade competente para fins de apreciação quanto a concessão de recompensa."
+                ],
+                correct: 2,
+                explanation: "A afirmativa incorreta é a terceira, pois as condições para estabelecimento do ato de bravura não são apuradas em relatório de investigação preliminar, mas sim em processo administrativo específico.",
+                difficulty: "hard",
+                category: "Legislação"
+            },
+            {
+                id: 12,
+                question: "Um militar é colocado em disponibilidade cautelar por quinze dias por determinação do Comandante Geral, sob a alegação de ter dado causa a grave escândalo que compromete o decoro da classe. Passados os quinze dias, o procedimento apuratório ainda não foi concluído. Considerando o Código de Ética e Disciplina dos Militares do Estado de Minas Gerais, qual a condição para que a disponibilidade cautelar desse militar possa ser prorrogada:",
+                options: [
+                    "A simples decisão do Comandante-geral, fundamentada na necessidade de conclusão do procedimento.",
+                    "A comprovação de que o militar continua representando um risco para a imagem da instituição.",
+                    "Um ato fundamentado do Comandante-geral, em casos de reconhecida necessidade, por igual período.",
+                    "A aprovação da prorrogação pelo Conselho de Ética e Disciplina Militares da Unidade (CEDMU)."
+                ],
+                correct: 2,
+                explanation: "A disponibilidade cautelar pode ser prorrogada por um ato fundamentado do Comandante-geral, em casos de reconhecida necessidade, por igual período.",
+                difficulty: "medium",
+                category: "Legislação"
+            },
+            // CONHECIMENTOS JURÍDICOS (Questões 13-24)
+            {
+                id: 13,
+                question: "De Nos termos da Constituição Federal de 1988, constituem objetivos fundamentais da República Federativa do Brasil, EXCETO:",
+                options: [
+                    "Construir uma sociedade livre, justa e solidária.",
+                    "Garantir o desenvolvimento nacional.",
+                    "Promover a dignidade da pessoa humana.",
+                    "Erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais."
+                ],
+                correct: 2,
+                explanation: "Promover a dignidade da pessoa humana é um fundamento da República (art. 1º, III), não um objetivo fundamental (art. 3º).",
+                difficulty: "easy",
+                category: "Jurídico"
+            },
+            {
+                id: 14,
+                question: "Sabe-se que o inquérito policial militar é a apuração sumária de fato, que, nos termos legais, configure crime militar, e de sua autoria. Diante de fato ocorrido no 70º BBM, 3° Sgt BM Atento foi designado para atuar como escrivão em IPM cujo investigado era um 1º Sgt BM. Ao tomar ciência do encargo, o 3º Sgt BM Atento deve assessorar ao encarregado do IPM de maneira CORRETA que:",
+                options: [
+                    "Um 3º Sgt BM não pode ser designado para ser escrivão de um IPM envolvendo um superior hierárquico.",
+                    "As testemunhas e o indiciado, exceto caso de urgência inadiável, que constará da respectiva assentada, devem ser ouvidos durante o dia, em período que medeie entre as sete e às dezoito horas.",
+                    "Compete à Justiça Militar estadual processar e julgar os militares dos Estados, nos crimes militares definidos em lei e as ações judiciais contra atos disciplinares militares, inclusive a competência do júri quando a vítima for civil.",
+                    "O inquérito policial militar deverá terminar dentro em vinte dias, se o indiciado estiver preso, contado esse prazo a partir do dia em que se executar a ordem de prisão; ou no prazo de trinta dias, quando o indiciado estiver solto, contados a partir da data em que se instaurar o inquérito."
+                ],
+                correct: 1,
+                explanation: "De acordo com as normas do IPM, as testemunhas e o indiciado devem ser ouvidos durante o dia, entre 7h e 18h, exceto em casos de urgência inadiável.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 15,
+                question: "Diante do previsto na Constituição Federal e legislações infraconstitucionais que tratam sobre atos de improbidade administrativa, é CORRETO afirmar:",
+                options: [
+                    "Os atos de improbidade administrativa importarão a cassação dos direitos políticos, a perda da função pública, a indisponibilidade dos bens e o ressarcimento ao erário, na forma e gradação previstas em lei, sem prejuízo da ação penal cabível.",
+                    "Os atos de improbidade violam a probidade na organização do Estado e no exercício de suas funções e a integridade do patrimônio público e social dos Poderes Executivo, Legislativo e Judiciário, bem como da administração direta, no âmbito da União, dos Estados, dos Municípios e do Distrito Federal, excetuando-se a administração indireta.",
+                    "Qualquer pessoa poderá representar à autoridade administrativa competente para que seja instaurada investigação destinada a apurar a prática de ato de improbidade.",
+                    "Constitui ato de improbidade administrativa, na modalidade culposa, perceber vantagem econômica, direta ou indireta, para facilitar a alienação, permuta ou locação de bem público ou o fornecimento de serviço por ente estatal por preço inferior ao valor de mercado."
+                ],
+                correct: 2,
+                explanation: "Qualquer pessoa pode representar à autoridade administrativa competente para instauração de investigação sobre ato de improbidade administrativa, conforme a Lei de Improbidade Administrativa.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 16,
+                question: "A Lei Federal nº 14.133/2021 (Licitações e Contratos Administrativos) estabelece normas gerais de licitação e contratação para as Administrações Públicas diretas, autárquicas e fundacionais da União, dos Estados, do Distrito Federal e dos Municípios. No que diz respeito às licitações públicas, assinale a opção CORRETA:",
+                options: [
+                    "Subordinam-se à Lei de Licitações e Contratos Administrativos os contratos que tenham por objeto operação de crédito, interno ou externo, e gestão de dívida pública, incluídas as contratações de agente financeiro e a concessão de garantia relacionadas a esses contratos.",
+                    "No caso de licitação que envolva o fornecimento de bens, a Administração poderá, excepcionalmente, indicar uma ou mais marcas ou modelos em decorrência da necessidade de padronização do objeto.",
+                    "A Lei Federal n. 14.133/21 manteve, dentre outras, a modalidade de licitação 'convite', ou 'carta-convite'.",
+                    "É dispensável a licitação para contratação de profissional do setor artístico, diretamente ou por meio de empresário exclusivo, desde que consagrado pela crítica especializada ou pela opinião pública."
+                ],
+                correct: 1,
+                explanation: "A Administração pode indicar marcas ou modelos específicos em licitações quando houver necessidade de padronização do objeto, conforme previsto na Lei 14.133/2021.",
+                difficulty: "hard",
+                category: "Jurídico"
+            },
+            {
+                id: 17,
+                question: "A recente promulgação da Lei Federal nº 14.751/2023, que institui a Lei Orgânica Nacional das Polícias Militares e dos Corpos de Bombeiros Militares dos Estados, do Distrito Federal e dos Territórios, trouxe significativas mudanças no ordenamento jurídico militar brasileiro. Considerando o impacto dessa nova legislação nas normas estaduais, como a Lei Estadual nº 5.301/1969 de Minas Gerais (Estatuto dos Militares do Estado de Minas Gerais), analise as afirmativas abaixo: I. A Lei Estadual nº 5.301/1969 de Minas Gerais, por ser uma lei estadual mais antiga, automaticamente recepciona e incorpora a Lei Federal nº 14.751/2023 em sua integralidade, sem necessidade de alterações. II. A Lei Federal nº 14.751/2023, sendo uma norma de caráter nacional, estabelece diretrizes gerais e atua como novo referencial para a legislação militar dos estados, exigindo que leis estaduais como a Lei Estadual nº 5.301/1969 de MG sejam revistas e, se necessário, alteradas para se adequarem. III. O Decreto-Lei nº 667, de 2 de julho de 1969, que anteriormente regulava as Polícias Militares e Corpos de Bombeiros Militares, foi expressamente revogado pela Lei Federal nº 14.751/2023, o que implica na necessidade de ajuste das leis estaduais que nele se baseavam. IV. A Lei Federal nº 14.751/2023 se aplica apenas aos estados que não possuíam legislação específica para suas Polícias Militares e Corpos de Bombeiros Militares antes de sua promulgação.",
+                options: [
+                    "Apenas as afirmativas I e IV estão corretas.",
+                    "Apenas as afirmativas II e III estão corretas.",
+                    "Apenas as afirmativas I, III e IV estão corretas.",
+                    "Apenas as afirmativas II, III e IV estão corretas."
+                ],
+                correct: 1,
+                explanation: "Apenas as afirmativas II e III estão corretas. A Lei Federal 14.751/2023 estabelece diretrizes gerais e exige adequação das leis estaduais, e revogou expressamente o Decreto-Lei 667/1969.",
+                difficulty: "hard",
+                category: "Jurídico"
+            },
+            {
+                id: 18,
+                question: "A Declaração Universal dos Direitos Humanos (DUDH) e a Convenção Americana sobre Direitos Humanos (Pacto de São José da Costa Rica), promulgada no Brasil pelo Decreto nº 678/1992, são instrumentos fundamentais que estabelecem os direitos e garantias individuais e coletivas. A atuação de agentes do Estado, incluindo os militares do Corpo de Bombeiros Militar de Minas Gerais (CBMMG), deve pautar-se pelo respeito a esses princípios. Considerando a atuação de um militar do CBMMG em uma ocorrência, qual das situações a seguir representaria uma violação direta a dispositivos da Declaração Universal dos Direitos Humanos ou do Pacto de São José da Costa Rica:",
+                options: [
+                    "Um bombeiro militar, durante um resgate em uma área de risco, prioriza a segurança da equipe de resgate e dos civis envolvidos, solicitando o afastamento de curiosos que comprometem a operação.",
+                    "Um bombeiro militar, ao atender a um incêndio em uma residência, adentra o imóvel sem autorização do proprietário, mas com o objetivo exclusivo de salvar vidas e bens.",
+                    "Um bombeiro militar, em um atendimento pré-hospitalar, recusa-se a prestar socorro a um indivíduo em situação de rua, sob a justificativa de que a corporação não possui recursos adequados para o transporte.",
+                    "Um bombeiro militar, após controlar um vazamento de gás, orienta os moradores sobre as medidas de segurança a serem tomadas, sem impor qualquer sanção pela falha na manutenção."
+                ],
+                correct: 2,
+                explanation: "A recusa em prestar socorro a um indivíduo em situação de rua viola o direito à vida e à saúde, garantidos tanto pela DUDH quanto pelo Pacto de São José da Costa Rica.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 19,
+                question: "Considerando as disposições da Lei de Abuso de Autoridade, qual das seguintes situações, se comprovada, poderia configurar crime de abuso de autoridade praticado por um bombeiro militar:",
+                options: [
+                    "O Sargento Generoso, durante uma vistoria de rotina em um estabelecimento comercial, orienta o proprietário sobre as adequações necessárias à legislação de prevenção e combate a incêndios, sem aplicar qualquer penalidade imediata.",
+                    "O Cabo Titã, em uma operação de resgate de vítima em local de difícil acesso, utiliza-se de força física para impedir que curiosos adentrem a área isolada, garantindo a segurança da operação e da equipe de resgate.",
+                    "O SubTenente Anoso, após uma ocorrência de vazamento de gás em uma residência, ingressa no imóvel sem o consentimento do morador e sem mandado judicial, alegando que precisa verificar a extensão do dano e que a situação representa risco iminente à vida dos vizinhos.",
+                    "O Cabo De Paolo, ao final de uma palestra sobre primeiros socorros em uma escola, repreende verbalmente um aluno que estava disperso e utilizando o celular, solicitando que ele preste atenção ao conteúdo."
+                ],
+                correct: 2,
+                explanation: "Ingressar em imóvel sem consentimento do morador e sem mandado judicial, sem que haja situação de risco iminente que justifique a medida, pode configurar abuso de autoridade.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 20,
+                question: "Considerando os princípios e as disposições da Lei Estadual nº 14.184/2002, qual das seguintes condutas, por parte de um servidor do CBMMG atuando em um processo administrativo, violaria um princípio fundamental da referida lei:",
+                options: [
+                    "Um 1º Tenente, ao presidir um processo administrativo disciplinar (PAD), permite que o acusado tenha acesso irrestrito a todos os documentos do processo e apresente defesa com o auxílio de um advogado.",
+                    "Um 3º Sargento, encarregado da instrução de um processo de apuração de responsabilidade por um acidente com viatura, decide o caso com base apenas em seu conhecimento pessoal, sem produzir provas ou colher depoimentos.",
+                    "O servidor civil, responsável pelo protocolo de documentos, informa ao interessado o prazo para interposição de recurso contra uma decisão administrativa, conforme estabelecido em lei.",
+                    "O 1º Sargento, ao proferir decisão em um processo de concessão de licença para evento, fundamenta sua decisão em pareceres técnicos e na legislação aplicável, detalhando os motivos que levaram à aprovação ou indeferimento."
+                ],
+                correct: 1,
+                explanation: "Decidir um processo administrativo com base apenas em conhecimento pessoal, sem produzir provas ou colher depoimentos, viola o princípio do devido processo legal e da ampla defesa.",
+                difficulty: "easy",
+                category: "Jurídico"
+            },
+            {
+                id: 21,
+                question: "O Art. 144 da Constituição Federal de 1988, ao tratar da segurança pública, estabelece em seu inciso V as competências das Polícias Militares e dos Corpos de Bombeiros Militares. Esse dispositivo delineia a atuação de cada instituição, visando à garantia da ordem pública e à proteção da vida e do patrimônio. Considerando as atribuições constitucionais da Polícia Militar e do Corpo de Bombeiros Militar, assinale a alternativa CORRETA:",
+                options: [
+                    "A Polícia Militar é responsável pela preservação da ordem pública e pelo policiamento ostensivo, enquanto o Corpo de Bombeiros Militar, embora possua atribuições de defesa civil, não está autorizado a realizar salvamentos marítimos ou aquáticos, que são de competência exclusiva da Marinha do Brasil.",
+                    "As Polícias Militares são encarregadas da polícia ostensiva e da preservação da ordem pública, e os Corpos de Bombeiros Militares, além das atribuições de defesa civil, executam as atividades de polícia judiciária militar e investigações criminais relacionadas a incêndios.",
+                    "O Corpo de Bombeiros Militar tem como atribuição principal a prevenção e combate a incêndios, não possuindo, entretanto, competência para atuar em operações de busca e salvamento, que são de responsabilidade exclusiva das Polícias Militares, no âmbito da segurança pública.",
+                    "A Polícia Militar e o Corpo de Bombeiros Militar, subordinados aos Governadores dos Estados e do Distrito Federal, atuam de forma complementar, sendo a Polícia Militar responsável pela polícia ostensiva e pela preservação da ordem pública, e o Corpo de Bombeiros Militar pelas ações de defesa civil, além da prevenção e extinção de incêndios, buscas, salvamentos e outras atividades afins."
+                ],
+                correct: 3,
+                explanation: "A alternativa correta descreve com precisão as atribuições constitucionais da Polícia Militar e do Corpo de Bombeiros Militar, conforme estabelecido no art. 144, § 5º e § 6º da CF/88.",
+                difficulty: "easy",
+                category: "Jurídico"
+            },
+            {
+                id: 22,
+                question: "Considerando o dever constitucional de defesa e preservação do meio ambiente e a atuação do Corpo de Bombeiros Militar (CBMMG), assinale a alternativa que MELHOR descreve a relação desse órgão com a proteção ambiental:",
+                options: [
+                    "A atuação do CBMMG na proteção ambiental restringe-se à prevenção e combate a incêndios florestais, uma vez que as demais atribuições ambientais são de competência exclusiva de órgãos de fiscalização ambiental.",
+                    "O CBMMG, ao combater incêndios urbanos e florestais, atua diretamente na proteção do meio ambiente, e suas atividades de salvamento e resgate em desastres naturais também contribuem para a minimização de impactos ambientais e a recuperação de áreas degradadas.",
+                    "A participação do CBMMG na proteção ambiental é limitada à emissão de pareceres técnicos em projetos de construções que afetam áreas de preservação, não possuindo competência para ações diretas de fiscalização ou aplicação de sanções ambientais.",
+                    "Embora o CBMMG atue em situações de desastre, sua principal função é a proteção da vida humana e do patrimônio, não sendo o meio ambiente uma prioridade direta em suas operações, exceto quando há risco imediato à saúde humana."
+                ],
+                correct: 1,
+                explanation: "O CBMMG atua diretamente na proteção ambiental através do combate a incêndios florestais e urbanos, e suas atividades de salvamento em desastres naturais contribuem para a minimização de impactos ambientais.",
+                difficulty: "medium",
+                category: "Jurídico"
+            },
+            {
+                id: 23,
+                question: "De acordo com a Constituição Federal de 1988, analise as afirmativas a seguir e marque a alternativa CORRETA: I São insuscetíveis de graça ou anistia a prática da tortura, o tráfico de pessoas, o terrorismo e os definidos como crimes hediondos, por eles respondendo os mandantes, os executores e os que, podendo evitá-los, se omitirem. II Todos podem reunir-se pacificamente, sem armas, em locais abertos ao público, independentemente de autorização, desde que não frustrem outra reunião anteriormente convocada para o mesmo local, sendo apenas exigido prévio aviso à autoridade competente. III São brasileiros naturalizados os nascidos no estrangeiro de pai brasileiro ou de mãe brasileira, desde que sejam registrados em repartição brasileira competente ou venham a residir na República Federativa do Brasil e optem, em qualquer tempo, depois de atingida a maioridade, pela nacionalidade brasileira. IV - O Superior Tribunal Militar compor-se-á de quinze Ministros vitalícios, nomeados pelo Presidente da República, depois de aprovada a indicação pelo Senado Federal, todos da ativa e do posto mais elevado da carreira.",
+                options: [
+                    "Apenas uma alternativa está correta.",
+                    "Apenas duas alternativas estão corretas.",
+                    "Apenas três alternativas estão coretas.",
+                    "Todas as alternativas estão incorretas."
+                ],
+                correct: 0,
+                explanation: "Apenas a afirmativa I está correta. As demais contêm incorreções: a II exige prévio aviso à autoridade; a III descreve brasileiros natos, não naturalizados; a IV - os ministros do STM não são todos da ativa nem do posto mais elevado.",
+                difficulty: "hard",
+                category: "Jurídico"
+            },
+            {
+                id: 24,
+                question: "Nos termos da Lei de Introdução às normas do Direito Brasileiro, bem como das legislações atinentes ao tema, é CORRETO afirmar que:",
+                options: [
+                    "Salvo disposição contrária, a lei começa a vigorar em todo o país na data de sua publicação.",
+                    "Toda lei terá vigor até que outra a modifique ou revogue.",
+                    "O agente público responderá pessoalmente por suas decisões ou opiniões técnicas, independente de dolo ou erro grosseiro.",
+                    "Ninguém se escusa de cumprir a lei, alegando que não a conhece."
+                ],
+                correct: 3,
+                explanation: "A alternativa correta é a quarta, que expressa o princípio da obrigatoriedade do conhecimento da lei (ignorantia legis non excusat).",
+                difficulty: "easy",
+                category: "Jurídico"
+            },
+            // CONHECIMENTOS PROFISSIONAIS (Questões 25-40)
+            {
+                id: 25,
+                question: "Sobre as normas utilizadas como referências da temática de Defesa Civil no âmbito nacional e do CBMMG, assinale a alternativa CORRETA:",
+                options: [
+                    "A Política Nacional de Proteção e Defesa Civil possui as previsões de competências dos entes federados, sendo que é competência dos Municípios a declaração de situação de emergência e estado de calamidade pública e dos Estados oferecer capacitação de recursos humanos para as ações de proteção e defesa civil.",
+                    "O mapeamento das áreas de risco é ferramenta essencial para o desempenho local das ações de proteção e defesa civil e por isso deve ser alvo das Unidades de Execução Operacional do CBMMG. Porém, durante as ações de resposta, o CBMMG não participa da realização da gestão e da distribuição dos materiais de assistência humanitária para as pessoas afetadas, sendo que é uma ação exclusiva da administração municipal.",
+                    "A classificação do desastre nível III é considerado de grande intensidade e são aqueles em que os danos e prejuízos são suportáveis e superáveis pelos governos locais e a situação de normalidade pode ser restabelecida com os recursos mobilizados em nível local ou complementados com o aporte de recursos estaduais e federais e ensejam a decretação de situação de emergência.",
+                    "Dentre as ações de resposta a desastres, as de socorro e de assistência às vítimas, são as primeiras a serem realizadas pelo município após a ocorrência do desastre. Dessa forma, o restabelecimento do fornecimento de água potável enquadra-se em uma ação de socorro."
+                ],
+                correct: 0,
+                explanation: "A alternativa correta é a primeira, que descreve com precisão as competências dos entes federados na Política Nacional de Proteção e Defesa Civil.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 26,
+                question: "Sobre os protocolos de atendimento pré-hospitalar e de salvamento aquático, assinale a alternativa INCORRETA:",
+                options: [
+                    "Após o salvamento de uma vítima de afogamento, o guarda-vidas verificou que a vítima apresentava ausculta pulmonar alterada (presença de estertores) e pouca espuma na boca e/ou nariz. A conduta mais adequada será ofertar oxigênio a 5 l/min; aquecimento corporal; posição de segurança sobre o lado direito; repouso e tranquilização da vítima; encaminhar para unidade de saúde.",
+                    "Após o salvamento de uma vítima de afogamento em água poluída, o guarda-vidas verificou que a vítima estava em parada cardiorrespiratória. Percebeu-se ainda que a vítima foi resgatada com 46 minutos de submersão. Dentre as condutas adotadas, deve-se realizar a ressuscitação cardiopulmonar.",
+                    "Após o salvamento de uma vítima de acidente de trânsito, em que o veículo caiu em um rio, ficando totalmente submerso onde o motorista ficou preso no interior do automóvel, foi verificado que a vítima estava em parada cardiorrespiratória e apresentava esmagamento total de crânio com perda de massa encefálica e ausência de pulso central. Percebeu-se ainda que a vítima foi resgatada com 14 minutos de submersão. Dentre as condutas adotadas, deve-se realizar a ressuscitação cardiopulmonar.",
+                    "Após o salvamento de uma vítima de afogamento, em que a vítima apresenta tosse sem espuma na boca ou nariz e ausculta pulmonar normal, uma das condutas adotadas poderá ser a liberação da vítima do local, desde que atenda os seguintes requisitos: recomendação de ser acompanhada por médico a nível ambulatorial, se após 15 a 30 minutos de observação do paciente, ele esteja sem queixas, sem tosse, com sinais vitais dentro dos parâmetros de normalidade, perfusão capilar e ausculta pulmonar normais."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois em casos de vítima com esmagamento total de crânio com perda de massa encefálica e ausência de pulso central, não se deve realizar RCP, pois são sinais inequívocos de morte.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 27,
+                question: "Com relação ao tema de combate a incêndios em vegetação e florestais, assinale a alternativa CORRETA:",
+                options: [
+                    "No âmbito da Força Tarefa Previncêndio - FTP, compete ao Instituto Estadual de Florestas – IEF realizar a contratação e a capacitação de brigadas e brigadistas florestais para a atuação na prevenção e combate a incêndios florestais.",
+                    "O CBMMG deverá determinar a interdição da Unidade de Conservação, com a devida comunicação formal à Coordenação-Geral da FTP, durante o período de ocorrência de incêndios florestais, havendo risco iminente à vida ou à segurança das pessoas.",
+                    "Vistorias em lote vago constitui uma ação de prevenção de incêndios florestais. Após realização da vistoria, cabe às unidades encaminhar os registros de evento de defesa social (REDS) a Secretaria de Estado de Meio-Ambiente e Desenvolvimento Sustentável (SEMAD) para dar prosseguimento à responsabilização dos proprietários e consequente efetivação da ação preventiva.",
+                    "Para operações prolongadas (superiores a 24 horas e com revezamento de equipes), deve ser descartada a possibilidade de empregar o combate noturno devido aos riscos existentes."
+                ],
+                correct: 1,
+                explanation: "A alternativa correta é a segunda, pois o CBMMG pode determinar a interdição de Unidades de Conservação durante incêndios florestais quando houver risco iminente à vida ou segurança das pessoas.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 28,
+                question: "Sobre a atividade de combate a incêndio urbano, assinale a alternativa INCORRETA:",
+                options: [
+                    "Para realizar o combate a incêndio em veículos elétricos ou híbridos, o bombeiro deverá adotar o seguinte procedimento: após as ações específicas para os sinistros envolvendo os veículos elétricos e híbridos, passa-se à fase do combate que ocorrerá com o uso de técnicas de combate a incêndio em veículo convencional, adicionadas ao monitoramento constante dos riscos específicos da alta voltagem e aplicação de pouca espuma.",
+                    "Em um incêndio em veículo elétrico ou híbrido, caso a caixa de baterias de alta tensão esteja em chamas, mais água será necessária para o combate ao incêndio. Dessa maneira, verificando tal cenário, recomenda-se a mobilização de mais suprimento de água.",
+                    "O tipo de ataque direto que consiste em aplicação de pouca água, sem abertura total da manopla do esguicho e com a vazão mínima (30 GPM ou 115 LPM) é denominado jato mole.",
+                    "Para atingir o poder de sucção do aparelho proporcionador de espuma, a pressão do corpo de bomba deverá estar acima de 75 PSI ou 5 kgf/cm². Após a sucção, ocorrerá a pré-mistura (água + LGE). Essa mistura pode ser na proporção de 1%, 3% ou 6% de LGE, que pode ser regulado no seletor de proporção de LGE."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois o ataque com aplicação de pouca água, sem abertura total da manopla do esguicho e com vazão mínima é denominado jato sólido, não jato mole.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 29,
+                question: "Sobre as padronizações previstas para o serviço operacional, assinale a alternativa CORRETA:",
+                options: [
+                    "Os recursos coordenados pelo CEB através das Unidades Especializadas compreendem o 5º esforço.",
+                    "Não existe previsão da composição de guarnição composta por bombeiros militares (BM) e outros profissionais civis, formada para a execução de atendimento pré-hospitalar (APH), por meio de parcerias institucionais, sendo que tal composição somente pode ser realizada em conjunto com o SAMU.",
+                    "Ao assumir o serviço operacional, o comandante de guarnição, que é o militar que exerce a função privativa de subtenente/sargento de maior antiguidade entre os militares que compõem a guarnição, deverá acompanhar e orientar a guarnição na conferência dos materiais e viaturas, tanto no recebimento quanto na passagem de serviço e garantir que, ao iniciar os trabalhos no teatro de operações, sua Gu BM já esteja devidamente equipada com os EPIs adequados para a atividade a ser desempenhada.",
+                    "É dever do militar dedicar-se exclusivamente ao seu trabalho, durante o turno de serviço, estando impedido de ocupar-se de outras atividades que não sejam operacionais e relativas ao serviço diário, sendo proibido de atividades de lazer."
+                ],
+                correct: 2,
+                explanation: "A alternativa correta é a terceira, que descreve adequadamente as responsabilidades do comandante de guarnição ao assumir o serviço operacional.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 30,
+                question: "Dentro da área de Salvamento Terrestre, podemos destacar o serviço de corte e poda de árvores. O trabalho desenvolvido pela Instituição, procura evitar ou mitigar os riscos ligados a uma árvore que apresente risco iminente de queda concomitante à ameaça à vida de pessoas e/ou patrimônio. Sobre o serviço de corte e poda de árvores, assinale a alternativa INCORRETA:",
+                options: [
+                    "É necessário sempre manter o tanque de óleo para lubrificação da corrente abastecida para que a corrente não sofra danos. Considerando que não há um sinalizador que indique a falta de óleo no reservatório, recomenda-se que todas as vezes que a motosserra for abastecida com combustível, também seja abastecida com óleo de lubrificação da corrente.",
+                    "Durante a etapa de avaliação do risco de dano decorrente da queda de árvore ou galho, o foco do bombeiro militar deve estar sobre a análise do risco iminente de prejuízo à incolumidade de pessoas e/ou bens. Dessa maneira, serão considerados os alvos potencialmente atingíveis, o resultado do possível impacto e a probabilidade de um acidente ocorrer.",
+                    "Em se tratando de árvores, não é possível afirmar, com precisão, que haverá 'risco nulo' de queda ou falhas, pois até mesmo árvores saudáveis poderão sofrer queda em condições climáticas adversas ou intervenções humanas abruptas.",
+                    "Quando se fala em árvores, não existe risco nulo. Uma árvore visualmente saudável e ausente de danos em sua estrutura, não está isenta da queda. Além disso, a guarnição de bombeiros atuará no sentido de eliminar o risco iminente, através da supressão total, mesmo que, após a vistoria, seja verificado que a árvore esteja parcialmente comprometida a fim de mitigar os riscos potenciais."
+                ],
+                correct: 3,
+                explanation: "A alternativa incorreta é a quarta, pois a guarnição de bombeiros não deve realizar supressão total de uma árvore que esteja apenas parcialmente comprometida, mas sim adotar medidas proporcionais ao risco identificado.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 31,
+                question: "Dentre as inúmeras atividades realizadas pelo Corpo de Bombeiros Militar de Minas Gerais (CBMMG) encontram-se os trabalhos em altura, que estão ligados à área de salvamento, denominada na corporação como Salvamento em Altura. Sobre esse tema, assinale a alternativa INCORRETA:",
+                options: [
+                    "As principais características dos nós são: fácil confecção, confiabilidade e fácil soltura.",
+                    "O nó de fita é utilizado na maioria das vezes para unir as pontas de fitas tubulares e/ou planas, formando anéis de fitas. Serve também para unir cordas.",
+                    "A corda semi-estática destina-se a proporcionar segurança durante uma escalada por absorver a força de choque gerada pela queda do escalador.",
+                    "Para a escalada de uma estrutura metálica existem técnicas de segurança que podem variar desde o uso de solteiras com mosquetões até mesmo 'escalar como se estivesse guiando uma via em rocha'."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois a corda semi-estática não é projetada para absorver força de choque; essa é uma característica das cordas dinâmicas utilizadas em escalada.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 32,
+                question: "Sabe-se da importância de padronizar ações dos bombeiros em diversas operações e no serviço diário. Dessa forma, o Procedimento Operacional Padrão (POP) é um documento utilizado para descrever a sequência de execução de tarefas específicas de maneira padronizada. Sobre os Procedimentos Operacionais Padrão do CBMMG, assinale a alternativa INCORRETA:",
+                options: [
+                    "Sobre uma busca e salvamento de uma pessoa perdida, o acionamento do canil deverá ser considerado e realizado assim que se consigam informações que confirmem o desaparecimento de uma pessoa e o último ponto visto (UPV). Os cães serão conduzidos por equipe especializada, devendo ser acompanhados por uma equipe de busca terrestre.",
+                    "A distância mínima de segurança em um combate a incêndio em vegetação próximo a linhas de transmissão de energia elétrica é o afastamento de 8 metros, a partir dos cabos e estruturas de transmissão de energia elétrica, utilizando como referência o que estiver mais próximo do observador (verificar em todas as direções - 360º), independente da tensão da rede (voltagem).",
+                    "A utilização de roupa de proteção para combate a incêndio urbano apertada ou justa favorece a deterioração precoce do equipamento, a redução da destreza e a diminuição da proteção oferecida pelo ar criado nos espaços internos do conjunto.",
+                    "Em uma ocorrência de busca e salvamento de uma pessoa perdida, a autoridade competente para encerrar as buscas será o Chefe da Guarnição. Dessa forma, as buscas serão encerradas quando todos os meios possíveis e disponíveis foram utilizados ou quando há risco de morte para os integrantes das equipes de busca e estes não puderem ser reduzidos a níveis aceitáveis de risco."
+                ],
+                correct: 3,
+                explanation: "A alternativa incorreta é a quarta, pois a autoridade competente para encerrar as buscas não é apenas o Chefe da Guarnição, mas sim uma autoridade superior, conforme estabelecido nos POPs.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 33,
+                question: "Durante uma operação de combate a incêndio florestal, o CB Bravo foi designado como chefe de GCIF e se deparou com um cenário de fogo intenso em uma área de difícil acesso. Sabendo da importância das normas de segurança descritas na Instrução Técnica Operacional 11 – Prevenção e Combate a Incêndios em Vegetação, assinale a alternativa que CONTRARIA os princípios de segurança no combate:",
+                options: [
+                    "Assegurar que todos os integrantes da equipe conheçam as rotas de fuga e as zonas de segurança existentes na área da operação.",
+                    "Posicionar um observador em ponto estratégico, com ampla visão do cenário e com meios de comunicação com o comando.",
+                    "Permitir que militares se desloquem individualmente por áreas já varridas pelo fogo para acelerar o combate.",
+                    "Manter comunicação clara, objetiva e confirmada entre os elementos da equipe e os órgãos de apoio envolvidos na operação."
+                ],
+                correct: 2,
+                explanation: "A alternativa que contraria os princípios de segurança é a terceira, pois permitir que militares se desloquem individualmente por áreas já varridas pelo fogo aumenta os riscos de acidentes.",
+                difficulty: "easy",
+                category: "Profissional"
+            },
+            {
+                id: 34,
+                question: "A respeito dos tipos de Processos de Segurança Contra Incêndio e Pânico (PSCIP) previstos pelo CBMMG em sua Instrução Técnica 01 - 10ª Edição, assinale a alternativa INCORRETA:",
+                options: [
+                    "O PTD não será submetido aos serviços de análise e vistoria com fins de emissão do AVCB.",
+                    "Caso a edificação ou espaço destinado ao uso coletivo tenha mais de 12 (doze) metros de altura ou tenha a projeção de sistema hidráulico de combate a incêndio (projetado de forma não suplementar), deverá ser utilizado o PT para a regularização do local.",
+                    "O PT deverá ser aplicado somente às edificações ou espaços destinados ao uso coletivo classificados como nível de risco III.",
+                    "O PTS é isento do serviço de análise e deve ser aplicado para as edificações e/ou espaços destinados ao uso coletivo classificados como risco III, mas que não se enquadram nos requisitos de PT."
+                ],
+                correct: 2,
+                explanation: "A alternativa incorreta é a terceira, pois o PT (Processo Técnico) não se aplica apenas a edificações de nível de risco III, mas também a outras classificações, conforme estabelecido na IT 01.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 35,
+                question: "De acordo com a Lei nº 14.130/2001, avalie as afirmativas abaixo e marque (V) para as consideradas verdadeiras e (F) para as afirmativas consideradas falsas. I - Dentre as ações previstas como de competência do CBMMG, encontra-se a análise e aprovação do sistema de prevenção e combate a incêndio e pânico e a aplicação de sanções administrativas nos casos previstos em lei. II - A pessoa física ou jurídica responsável pela comercialização, instalação, manutenção e conservação de aparelhos de prevenção contra incêndio e pânico utilizados em edificação de uso coletivo deverá cadastrar-se no CBMMG para o exercício dessas atividades. III - A advertência escrita será aplicada na primeira vistoria, constatado o descumprimento desta lei ou de norma técnica regulamentar. IV - Fica proibido ao militar da reserva ser proprietário ou consultor de empresa de projeto, comercialização, instalação, manutenção e conservação nas áreas de prevenção e combate a incêndio e pânico.",
+                options: [
+                    "V, V, V, V",
+                    "V, V, V, F",
+                    "F, V, V, V",
+                    "V, V, F, V"
+                ],
+                correct: 1,
+                explanation: "A sequência correta é V, V, V, F. A quarta afirmativa é falsa porque a lei não proíbe militares da reserva de serem proprietários ou consultores de empresas na área de prevenção e combate a incêndio.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 36,
+                question: "Durante uma operação subaquática de recuperação, um mergulhador do CBMMG foi designado para executar a missão a uma profundidade de 15 metros. Para garantir a segurança da operação, foi necessário calcular a autonomia de gás disponível, com base nas diretrizes da ITO 12 – Operações Submersas. Considerando os seguintes dados: - Volume do cilindro: 12 litros. - Pressão de trabalho: 200 BAR. - Consumo individual: 20 litros/minuto. - Profundidade do mergulho: 15 metros. Sabendo que a reserva de segurança de 50 BAR não deve ser considerada no cálculo, assinale a alternativa CORRETA em relação à autonomia para realização desse mergulho:",
+                options: [
+                    "20 minutos",
+                    "30 minutos",
+                    "36 minutos",
+                    "40 minutos"
+                ],
+                correct: 2,
+                explanation: "Considerando volume do cilindro (12L), pressão de trabalho (200 BAR), consumo individual (20L/min) e profundidade (15m), a autonomia calculada é de 36 minutos.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 37,
+                question: "Durante o planejamento de uma operação submersa para busca e resgate em uma lagoa com baixa visibilidade, o chefe da operação relembrou à equipe alguns protocolos obrigatórios estabelecidos pela Instrução Técnica Operacional 12 – Operações Submersas. Com base nesses aspectos de segurança, assinale a alternativa CORRETA:",
+                options: [
+                    "Em ambientes de baixa visibilidade, o uso de cabo guia é dispensável, desde que haja dois mergulhadores com boias sinalizadoras.",
+                    "Para cada mergulhador submerso em operação, é obrigatória a presença de pelo menos um mergulhador de segurança em condições de pronto emprego.",
+                    "O mergulho solitário é expressamente proibido para mergulhadores de níveis 1, 2 e 3, independentemente das condições.",
+                    "A fonte alternativa de ar comprimido é obrigatória apenas para mergulhadores de nível 4, conforme previsto nas normas de mergulho técnico."
+                ],
+                correct: 1,
+                explanation: "A alternativa correta é a segunda, pois de acordo com a ITO 12, para cada mergulhador submerso em operação, é obrigatória a presença de pelo menos um mergulhador de segurança em condições de pronto emprego.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 38,
+                question: "Durante o preenchimento do Formulário de Informação de Desastres (FIDE) para solicitação de reconhecimento federal, um Oficial da Defesa Civil classificou um desastre que envolveu óbitos, isolamento de comunidades, destruição de moradias e interrupção de serviços essenciais. Com base na Instrução Normativa nº 02/2016, assinale a alternativa CORRETA quanto à classificação da intensidade do desastre:",
+                options: [
+                    "O desastre descrito deve ser classificado como de nível II, ensejando a decretação de situação de emergência.",
+                    "O desastre descrito deve ser classificado como de nível III, ensejando a decretação de estado de calamidade pública.",
+                    "O desastre deve ser classificado como de nível I, já que os danos podem ser supridos com recursos locais e estaduais.",
+                    "A classificação do desastre depende exclusivamente do número de vítimas fatais, independentemente de outros fatores."
+                ],
+                correct: 1,
+                explanation: "O desastre descrito, com óbitos, isolamento de comunidades, destruição de moradias e interrupção de serviços essenciais, deve ser classificado como nível III (grande intensidade), ensejando a decretação de estado de calamidade pública.",
+                difficulty: "medium",
+                category: "Profissional"
+            },
+            {
+                id: 39,
+                question: "Durante uma instrução prática em um clube recreativo, os alunos foram desafiados a identificar corretamente a fase do processo de afogamento apresentada em diferentes situações simuladas por vítimas. Com base no Manual de Salvamento Aquático do CBMMG, associe corretamente as fases do processo de afogamento com os parênteses da relação de situações, abaixo, e assinale a alternativa CORRETA: Fases do processo de afogamento: 1. Angústia. 2. Pânico. 3. Submersão. Situações simuladas: ( ) A vítima movimenta-se de forma descoordenada e ineficaz, sem conseguir chamar por socorro. ( ) A vítima desaparece subitamente da superfície e não é mais visível. ( ) A vítima tenta nadar até a borda da piscina, mas sem sucesso. Ainda consegue gritar e acenar. ( ) A vítima está consciente, utiliza um flutuador improvisado, mas visivelmente cansada.",
+                options: [
+                    "2, 3, 1, 1",
+                    "3, 3, 1, 1",
+                    "1, 2, 3, 1",
+                    "3, 1, 1, 2"
+                ],
+                correct: 0,
+                explanation: "A sequência correta é 2, 3, 1, 1: (2) Movimentação descoordenada caracteriza pânico; (3) Desaparecimento da superfície caracteriza submersão; (1) Tentativa de nado sem sucesso mas ainda consciente caracteriza angústia; (1) Uso de flutuador improvisado com cansaço caracteriza angústia.",
+                difficulty: "hard",
+                category: "Profissional"
+            },
+            {
+                id: 40,
+                question: "Durante um atendimento a uma ocorrência de salvamento veicular em uma rodovia federal, a guarnição de bombeiros se depara com um veículo de passeio colidido lateralmente contra um poste. O condutor encontra-se consciente e orientado, porém com as pernas presas entre o banco e o painel. A equipe decide realizar cortes na estrutura da coluna 'B' para facilitar o acesso e retirada segura da vítima. Ao inspecionar o interior do veículo, observam a inscrição 'SRS' nas colunas laterais e o airbag do volante já deflagrado, mas o airbag lateral permanece intacto. Com base na ITO 34 – Salvamento Veicular, assinale a alternativa CORRETA:",
+                options: [
+                    "Os airbags que não foram acionados no momento do impacto não representam risco durante o atendimento, desde que o airbag frontal tenha deflagrado.",
+                    "O corte da coluna pode ser feito diretamente, desde que se mantenha uma distância mínima de 30 cm, independentemente da presença de airbags não deflagrados.",
+                    "É necessário desligar a bateria do veículo e expor a área interna da coluna antes de realizar cortes, para evitar deflagração acidental do airbag lateral.",
+                    "A deflagração acidental dos airbags só ocorre em caso de novo impacto, sendo desnecessário tomar precauções específicas em relação a eles."
+                ],
+                correct: 2,
+                explanation: "A alternativa correta é a terceira, pois de acordo com a ITO 34, é necessário desligar a bateria do veículo e expor a área interna da coluna antes de realizar cortes, para evitar deflagração acidental do airbag lateral.",
+                difficulty: "medium",
+                category: "Profissional"
+            }
+        ];
+
+        // =============================================
+        // VARIÁVEIS GLOBAIS DO QUIZ
+        // =============================================
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(allQuestions.length).fill(null);
+        let correctAnswers = Array(allQuestions.length).fill(false);
+        let quizStarted = false;
+
+        // =============================================
+        // ELEMENTOS DO DOM
+        // =============================================
+        const startBtn = document.getElementById('start-btn');
+        const quizSection = document.getElementById('quiz-section');
+        const contentSection = document.querySelector('.content-section');
+        const quizContainer = document.getElementById('quiz-container');
+        const progressText = document.getElementById('progress-text');
+        const quizProgress = document.getElementById('quiz-progress');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const resultsSection = document.getElementById('results');
+        const scoreElement = document.getElementById('score');
+        const correctLegislacaoElement = document.getElementById('correct-legislacao');
+        const correctJuridicoElement = document.getElementById('correct-juridico');
+        const correctProfissionalElement = document.getElementById('correct-profissional');
+        const messageElement = document.getElementById('message');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // =============================================
+        // INICIALIZAÇÃO DO QUIZ
+        // =============================================
+        startBtn.addEventListener('click', startQuiz);
+        prevBtn.addEventListener('click', showPreviousQuestion);
+        nextBtn.addEventListener('click', showNextQuestion);
+        restartBtn.addEventListener('click', restartQuiz);
+
+        // =============================================
+        // FUNÇÕES DO QUIZ
+        // =============================================
+        function startQuiz() {
+            quizStarted = true;
+            contentSection.style.display = 'none';
+            quizSection.style.display = 'block';
+            showQuestion(currentQuestionIndex);
+            updateProgress();
+        }
+
+        function showQuestion(index) {
+            const question = allQuestions[index];
+            
+            // Atualizar texto de progresso
+            progressText.textContent = `Pergunta ${index + 1} de ${allQuestions.length}`;
+            
+            // Atualizar barra de progresso
+            const progressPercentage = ((index + 1) / allQuestions.length) * 100;
+            quizProgress.style.width = `${progressPercentage}%`;
+            
+            // Criar HTML da pergunta
+            let questionHTML = `
+                <div class="question">
+                    <div class="question-header">
+                        <span class="question-difficulty difficulty-${question.difficulty}">
+                            ${question.category} - ${question.difficulty === 'easy' ? 'Fácil' : question.difficulty === 'medium' ? 'Médio' : 'Difícil'}
+                        </span>
+                        <div class="question-text">${question.id}. ${question.question}</div>
+                    </div>
+                    <div class="options">
+            `;
+            
+            // Adicionar opções de resposta
+            question.options.forEach((option, optionIndex) => {
+                let optionClass = 'option';
+                let feedbackIcon = '';
+                
+                // Verificar se esta opção foi selecionada
+                if (userAnswers[index] === optionIndex) {
+                    optionClass += ' selected';
+                    
+                    // Verificar se a resposta está correta
+                    if (optionIndex === question.correct) {
+                        optionClass += ' correct';
+                        feedbackIcon = '<i class="fas fa-check feedback-icon"></i>';
+                    } else {
+                        optionClass += ' incorrect';
+                        feedbackIcon = '<i class="fas fa-times feedback-icon"></i>';
+                    }
+                }
+                
+                // Se a pergunta foi respondida, destacar a resposta correta
+                if (userAnswers[index] !== null && optionIndex === question.correct) {
+                    optionClass += ' correct-answer';
+                    if (userAnswers[index] !== optionIndex) {
+                        feedbackIcon = '<i class="fas fa-check feedback-icon"></i>';
+                    }
+                }
+                
+                questionHTML += `
+                    <div class="${optionClass}" data-option="${optionIndex}">
+                        <span class="option-letter">${String.fromCharCode(65 + optionIndex)}</span>
+                        ${option}
+                        ${feedbackIcon}
+                    </div>
+                `;
+            });
+            
+            questionHTML += `</div></div>`;
+            
+            // Inserir HTML no container
+            quizContainer.innerHTML = questionHTML;
+            
+            // Adicionar event listeners às opções (apenas se a pergunta ainda não foi respondida)
+            if (userAnswers[index] === null) {
+                document.querySelectorAll('.option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        selectOption(this, index);
+                    });
+                });
+            }
+            
+            // Atualizar estado dos botões de navegação
+            updateNavigationButtons();
+        }
+
+        function selectOption(optionElement, questionIndex) {
+            // Se já respondeu esta pergunta, não permitir alteração
+            if (userAnswers[questionIndex] !== null) return;
+            
+            const selectedOption = parseInt(optionElement.getAttribute('data-option'));
+            userAnswers[questionIndex] = selectedOption;
+            
+            // Verificar se a resposta está correta
+            const isCorrect = selectedOption === allQuestions[questionIndex].correct;
+            correctAnswers[questionIndex] = isCorrect;
+            
+            // Atualizar a exibição da pergunta
+            showQuestion(questionIndex);
+            
+            // Se for a última pergunta, mostrar botão de finalizar
+            if (questionIndex === allQuestions.length - 1) {
+                nextBtn.textContent = 'Finalizar';
+                nextBtn.innerHTML = 'Finalizar <i class="fas fa-flag-checkered"></i>';
+            }
+        }
+
+        function showPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+            }
+        }
+
+        function showNextQuestion() {
+            if (currentQuestionIndex < allQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                // Última pergunta - finalizar quiz
+                finishQuiz();
+            }
+        }
+
+        function updateNavigationButtons() {
+            // Botão Anterior
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            // Botão Próxima
+            if (currentQuestionIndex === allQuestions.length - 1) {
+                nextBtn.textContent = 'Finalizar';
+                nextBtn.innerHTML = 'Finalizar <i class="fas fa-flag-checkered"></i>';
+            } else {
+                nextBtn.textContent = 'Próxima';
+                nextBtn.innerHTML = 'Próxima <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        function updateProgress() {
+            const answeredCount = userAnswers.filter(answer => answer !== null).length;
+            progressText.textContent = `Pergunta ${currentQuestionIndex + 1} de ${allQuestions.length}`;
+            
+            const progressPercentage = ((currentQuestionIndex + 1) / allQuestions.length) * 100;
+            quizProgress.style.width = `${progressPercentage}%`;
+        }
+
+        function finishQuiz() {
+            // Calcular pontuação
+            const correctCount = correctAnswers.filter(correct => correct).length;
+            const totalQuestions = allQuestions.length;
+            const scorePercentage = Math.round((correctCount / totalQuestions) * 100);
+            
+            // Calcular desempenho por categoria
+            const legisQuestions = allQuestions.filter(q => q.category === 'Legislação');
+            const juridQuestions = allQuestions.filter(q => q.category === 'Jurídico');
+            const profQuestions = allQuestions.filter(q => q.category === 'Profissional');
+            
+            const correctLegis = legisQuestions.filter((q, i) => {
+                const globalIndex = allQuestions.findIndex(aq => aq.id === q.id);
+                return correctAnswers[globalIndex];
+            }).length;
+            
+            const correctJurid = juridQuestions.filter((q, i) => {
+                const globalIndex = allQuestions.findIndex(aq => aq.id === q.id);
+                return correctAnswers[globalIndex];
+            }).length;
+            
+            const correctProf = profQuestions.filter((q, i) => {
+                const globalIndex = allQuestions.findIndex(aq => aq.id === q.id);
+                return correctAnswers[globalIndex];
+            }).length;
+            
+            // Exibir resultados
+            scoreElement.textContent = `${correctCount}/${totalQuestions}`;
+            correctLegislacaoElement.textContent = `${correctLegis}/${legisQuestions.length}`;
+            correctJuridicoElement.textContent = `${correctJurid}/${juridQuestions.length}`;
+            correctProfissionalElement.textContent = `${correctProf}/${profQuestions.length}`;
+            
+            // Mensagem personalizada baseada no desempenho
+            let message = '';
+            if (scorePercentage >= 90) {
+                message = 'Excelente! Você demonstrou domínio completo do conteúdo do EAP. Continue assim!';
+            } else if (scorePercentage >= 70) {
+                message = 'Bom trabalho! Você tem um bom conhecimento, mas ainda pode melhorar em algumas áreas.';
+            } else if (scorePercentage >= 50) {
+                message = 'Resultado regular. Recomenda-se revisar os conteúdos com mais atenção antes do exame.';
+            } else {
+                message = 'É necessário estudar mais. Recomenda-se dedicar mais tempo à preparação para o EAP.';
+            }
+            
+            messageElement.textContent = message;
+            
+            // Mostrar seção de resultados e ocultar quiz
+            quizSection.style.display = 'none';
+            resultsSection.style.display = 'block';
+        }
+
+        function restartQuiz() {
+            // Reiniciar variáveis
+            currentQuestionIndex = 0;
+            userAnswers = Array(allQuestions.length).fill(null);
+            correctAnswers = Array(allQuestions.length).fill(false);
+            
+            // Mostrar conteúdo inicial
+            resultsSection.style.display = 'none';
+            contentSection.style.display = 'flex';
+            
+            // Restaurar botão de iniciar
+            startBtn.textContent = 'Iniciar Quiz';
+            startBtn.innerHTML = '<i class="fas fa-play"></i> Iniciar Quiz';
+        }
+    </script>
+</body>
+</html>
